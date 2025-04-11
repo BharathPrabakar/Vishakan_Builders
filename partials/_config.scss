@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Merriweather:ital@0;1&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+
+    
+    outline: 0;
+    list-style: none;
+}
+
+:root{
+    --yellow: #f5bf23;
+    --dark-yellow: #fb8500;
+    --dark-blue: #020335;
+    --dark-blue2: #06084f;
+    --light-blue: #023e8a;
+    --light-blue2: #0d4ea3;
+    --black: #111;
+    --white: #fff;
+    --light-color: #666;
+    --light-bg: #eee;
+    --lighter-bg: #fbfbfb;
+    --box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    --border: .1rem solid rgba(0,0,0,.3);
+}
+
+$primary-color: #03045e;
+$primary-color-variant: #023e8a;
+$secondary-color: #f5bf23;
+$secondary-color-variant: #fb8500;
+$white-color: #fff;
+$light-color: rgba($white-color, 0.7);
+$black-color: #0c031b;
+$dark-color: rgba($black-color, 0.7);
+$success-color: #54eb72;
+$container-lg: 82%;
+$container-md:  90%;
+
+// body{
+//    background: $primary-color;
+// }

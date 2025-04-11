@@ -1,0 +1,219 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.svg">
+
+    <!-- Fonts -->
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@701,200,500,301,201,300,601,600,401,501,400,700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <!-- React Datepicker Styles -->
+    <style>
+        /* Corrected and formatted styles for React Datepicker */
+        .react-datepicker__input-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .react-datepicker__input-container .react-datepicker__calendar-icon {
+            position: absolute;
+            padding: 0.5rem;
+        }
+        .react-datepicker__view-calendar-icon input {
+            padding: 6px 10px 5px 25px;
+        }
+        .react-datepicker__year-read-view,
+        .react-datepicker__month-read-view,
+        .react-datepicker__month-year-read-view {
+            border: 1px solid transparent;
+            border-radius: 0.3rem;
+            position: relative;
+        }
+        .react-datepicker__year-read-view:hover,
+        .react-datepicker__month-read-view:hover,
+        .react-datepicker__month-year-read-view:hover {
+            cursor: pointer;
+        }
+        .react-datepicker__year-read-view--down-arrow,
+        .react-datepicker__month-read-view--down-arrow,
+        .react-datepicker__month-year-read-view--down-arrow {
+            transform: rotate(135deg);
+            right: -16px;
+            top: 0;
+        }
+        .react-datepicker__input-container input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .react-datepicker__input-container input:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+    </style>
+
+    <!-- Custom Styles -->
+    <style>
+        /* Corrected and formatted custom styles */
+        .App {
+            background-color: var(--secondary-color);
+            background-image: url(https://joinus.juspay.in/515226a3e13ebf7172c5.jpg);
+            background-size: cover;
+            background-position: center;
+            opacity: 0.8;
+            display: flex;
+            flex-direction: row;
+            font-family: "General Sans", sans-serif;
+            background-repeat: no-repeat;
+        }
+        .applicant-form {
+            background-color: white;
+            width: 66%;
+            padding: 20px;
+            margin: auto;
+            border-radius: 12px;
+        }
+        .form-title {
+            font-size: 30px;
+            color: black;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            font-weight: 500;
+            font-size: 18px;
+            color: black;
+            margin-bottom: 8px;
+        }
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .input-group input:focus,
+        .input-group select:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        .input-group button[type="submit"] {
+            background-color: #87ceeb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .input-group button[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="App">
+        <div class="applicant-form">
+            <h1 class="form-title">Join Us</h1>
+            <form>
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="input-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="graduation-year">Graduation Year</label>
+                    <input type="number" id="graduation-year" name="graduation-year" placeholder="Enter your graduation year" min="1900" max="2099" required>
+                </div>
+                <div class="input-group">
+                    <label for="role">Role</label>
+                    <select id="role" name="role" required>
+                        <option value="" disabled selected>Select the role you are applying for</option>
+                        <option value="site-engineer">Site Engineer</option>
+                        <option value="project-manager">Project Manager</option>
+                        <option value="autocad-designer">AutoCAD Designer</option>
+                        <option value="marketing-executive">Marketing Executive</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="resume">Resume Link</label>
+                    <input type="url" id="resume" name="resume" placeholder="Paste your Google Drive or resume link" required>
+                </div>
+                
+                <div class="input-group">
+                    <button type="submit">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const form = document.querySelector("form");
+      
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+      
+          const data = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
+            gender: document.getElementById("gender").value,
+            graduationYear: document.getElementById("graduation-year").value,
+            role: document.getElementById("role").value,
+            resume: document.getElementById("resume").value
+          };
+      
+          try {
+            const response = await fetch("http://localhost:5000/api/career", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(data)
+            });
+      
+            const result = await response.json();
+      
+            if (response.ok) {
+              alert("Application submitted successfully!");
+              form.reset();
+            } else {
+              alert("Error: " + (result.message || "Something went wrong."));
+            }
+          } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("Server error. Please try again later.");
+          }
+        });
+      </script>
+      
+</body>
+</html>

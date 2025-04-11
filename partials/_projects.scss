@@ -1,0 +1,158 @@
+
+.projects-page{
+
+    background: var(--black);
+
+    .heading{
+        color: var(--white);
+    }
+
+    .box-container-projects{
+        @include grid(50rem);
+
+        .box{
+            cursor: initial;
+
+            &:hover.image img{
+                transform: scale(1.1);
+                
+            }
+
+            .image{
+                height: 50rem;
+                overflow: hidden;
+
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    transition: .2s linear;
+                }
+            }
+        }
+
+        .content{
+            display: flex;
+            background: var(--white);
+            justify-content: space-between;
+
+            .info{
+                .title-info{
+                    display: flex;
+                    justify-content:baseline;
+                    align-items: center;
+                    
+                    p{
+                        padding-left: 0.8rem;
+                    }
+                    
+                }
+                padding: 1rem 2rem;
+
+                h3{
+                    @include titleText(1.7rem);
+                }
+
+                p{
+                    @include graphText(1.5rem);
+                }
+                
+                small{
+                    color: var(--black);
+                    font-size: 1.1rem;
+                }
+            }
+
+            i{
+                width: 7.5rem;
+                font-size: 3rem;
+                background: var(--yellow);
+                color:var(--white);
+                cursor: pointer;
+                text-align: center;
+                line-height: 7.5rem;
+                padding: 2rem;
+            }
+        }
+    }
+}
+
+
+.projects-page-white{
+
+    background: var(--light-bg);
+
+    .heading{
+        color: var(--black);
+    }
+
+    .box-container-projects-white{
+        @include grid(50rem);
+
+        .box{
+            box-shadow: 10px 10px 8px #d9d7d7;
+            cursor: initial;
+
+            &:hover.image img{
+                transform: scale(1.1);
+                
+            }
+
+            .image{
+                height: 50rem;
+                overflow: hidden;
+
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    transition: .2s linear;
+                }
+            }
+        }
+
+        .content{
+            display: flex;
+            background: var(--white);
+            justify-content: space-between;
+
+            .info{
+                .title-info{
+                    display: flex;
+                    justify-content:baseline;
+                    align-items: center;
+                    
+                    p{
+                        padding-left: 0.8rem;
+                    }
+                    
+                }
+                padding: 1rem 2rem;
+
+                h3{
+                    @include titleText(1.7rem);
+                }
+
+                p{
+                    @include graphText(1.5rem);
+                }
+                
+                small{
+                    color: var(--black);
+                    font-size: 1.1rem;
+                }
+            }
+
+            i{
+                width: 7.5rem;
+                font-size: 3rem;
+                background: var(--yellow);
+                color:var(--white);
+                cursor: pointer;
+                text-align: center;
+                line-height: 7.5rem;
+                padding: 2rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,268 @@
+#services {
+    h2{
+        font-size: 5rem;
+    }
+
+    p{
+        font-size: 1.5rem;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+
+        article{
+            @include gradientBackground;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            display: flex;
+            gap: 1.5rem;
+            height: 100%; /* Ensure cards stretch to fill available space */
+            flex-direction: column;
+            justify-content: space-between; /* Align content properly */
+            text-align: center; /* Center-align text */
+            transition: all 400ms ease;
+
+            &:hover{
+                margin-top: -0.5rem;
+            }
+
+            i {
+                font-size: 1.7rem;
+            }
+
+            div {
+                h4 {
+                    margin-bottom: 1rem;
+                    font-size: 2.2rem;
+                }
+                small {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem; /* Add spacing below images */
+        }
+    }
+}
+
+
+/************* SWITCH BOXES ****************/
+
+.switch-box {
+    background: $white-color;
+    display: flex;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+
+    .img-kinetic {
+        border-radius: 8px;
+        width: 80%;
+        max-width: 100%;
+        height: auto;
+        display: flex;
+        flex: 1 1 1rem;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 3rem;
+
+        .video {
+            flex: 1 1 41rem;
+
+            video {
+                width: 100%;
+            }
+        }
+
+        .content {
+            flex: 1 1 41rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensure consistent spacing */
+            height: 100%; /* Fix height for uniformity */
+
+            h2 {
+                @include titleText(3.5rem);
+            }
+
+            p {
+                @include graphText(1.5rem);
+                padding: 1rem 0;
+                font-size: 2.5rem;
+            }
+        }
+    }
+}
+
+.boxes{
+    background: $white-color;
+    padding: 0 20rem;
+
+    .switch-box {
+        display: grid;
+        // align-content: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .text-container {
+        // padding-left: 0;
+        // margin-left: 0;
+        align-content: space-around;
+
+        h2 {
+            font-size: 3.5rem;
+            text-align: left;
+        }
+
+        h3 {
+            font-size: 2rem;
+            text-align: left;
+        }
+
+        p{
+            font-size: 1.4rem;
+            padding-top: 1rem;
+            text-align: left;
+        }
+
+        .progress {
+            display: grid;
+            border-radius: 50%;
+            
+
+            label {
+                font-size: 1.5rem;
+            }
+
+        }
+    }
+}
+
+.full-length-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-content: stretch;
+    padding: 40px 0;
+
+    img{
+        width: 500px;
+        height: 400px;
+    }
+}
+
+
+/*+++++++++++++++++ MEDIA QUERIES (MEDIUM DEVICES) +++++++++++++++++++++ */
+@media screen and (max-width: 1024px) {
+    #services {
+        .container {
+            gap: 1rem;
+            grid-template-columns: 1fr 1fr;
+
+            article {
+                padding: 1.2rem;
+                gap: 0.8rem;
+
+
+                &:hover {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+/*+++++++++++++++++ MEDIA QUERIES (SMALL DEVICES +++++++++++++++++++++ */
+@media screen and (max-width:600px) {
+   #services {
+    .container {
+        grid-template-columns: 1fr;
+
+
+        article {
+            div {
+                h4 {
+                    margin-bottom: 0.8rem;
+                }
+            }
+        }
+    }
+   }
+}
+
+.cta {
+    background: var(--lighter-bg);
+    padding: 80px 90px;
+    margin: 50px 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content:flex-start;
+
+    h2{
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 20px;
+        text-align: left;
+    }
+
+    h3 {
+        margin-top: 20px;
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-align: left;
+
+    }
+    
+    .left-box {
+        padding-left: 100px;
+    }
+
+    .right-box {
+        p {
+            font-size: 1.7rem;
+        }
+
+        .buttons{
+            padding-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: left;
+
+
+            button{
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+            }
+            
+            .left-button {
+                button {
+                    background-color: var(--yellow);
+                    color: white;
+                }
+            }
+
+            .right-button {
+                button {
+                    background-color: var(--blue);
+                    color: var(--white);
+                    border:  1px solid var(--light-blue);
+                }
+            }
+        }
+    }
+}
