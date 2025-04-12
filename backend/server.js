@@ -8,12 +8,6 @@ import nodemailer from "nodemailer";
 // Load environment variables
 dotenv.config();
 
-console.log("Mongo URI:", process.env.MONGO_URL);  // Should show the Mongo URI
-console.log("JWT Secret:", process.env.JWT_SECRET);  // Should show the JWT secret
-console.log("Port:", process.env.PORT);  // Should show the Port number
-
-
-// Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 5001;
 
@@ -22,215 +16,175 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
+//const MONGO_URI = 'mongodb://localhost:27017/vishakanbuilders'; // Update with your database name
 
-// Nodemailer transporter setup
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+    .then(() => console.log('MongoDB connected successfully'))
+    .catch((err) => {
+        console.error('MongoDB connection error:', err.message);
+        process.exit(1); // Exit the process if the connection fails
+    });
+
+// Handle connection errors after initial connection
+mongoose.connection.on('error', (err) => {
+    console.error('MongoDB connection error:', err.message);
+});
+
+// Nodemailer setup
 const transporter = nodemailer.createTransport({
-  service: "gmail", // Use your email service provider
+  service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
 });
 
-// Function to send an email when a new application is submitted
+// Function to send an email to HR when a new application is submitted
 async function sendNewApplicationEmail(application) {
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: "hr@company.com", // Replace with HR email
-    subject: "New Career Application",
-    text: `A new application has been submitted by ${application.name}. Check the details below:\n\nName: ${application.name}\nEmail: ${application.email}\nPhone: ${application.phone}\nResume: ${application.resumeLink}\nStatus: ${application.status}`,
+    to: "hr@company.com", // Replace with actual HR email
+    subject: "New Career Application Submitted",
+    text: `
+A new career application has been submitted.
+
+Name: ${application.name}
+Email: ${application.email}
+Phone: ${application.phone}
+Gender: ${application.gender}
+Graduation Year: ${application.graduationYear}
+Experience: ${application.experience} years
+Resume Link: ${application.resumeLink}
+
+View it on the dashboard.
+    `,
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    console.log("✅ New application email sent to HR.");
+    console.log("✅ Application email sent to HR");
   } catch (error) {
-    console.error("❌ Error sending new application email:", error);
+    console.error("❌ Failed to send email to HR:", error);
   }
 }
 
-// Function to send an email when the application status is updated
-async function sendStatusUpdateEmail(application) {
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: application.email, // Applicant's email
-    subject: "Application Status Update",
-    text: `Dear ${application.name},\n\nYour application has been updated to: ${application.status}.\n\nThank you for applying to our company.\n\nBest regards,\nKinetic Engineering Team`,
-  };
-
-  try {
-    await transporter.sendMail(mailOptions);
-    console.log("✅ Status update email sent to applicant.");
-  } catch (error) {
-    console.error("❌ Error sending status update email:", error);
-  }
-}
-
-// Career Application Schema (updated)
+// Career Application Schema
 const careerApplicationSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   phone: { type: String, required: true },
   gender: { type: String, required: true },
   graduationYear: { type: Number, required: true },
-  experience: { type: Number, required: true },
+  experience: { type: String, required: true },
   resumeLink: { type: String, required: true },
-  coverLetter: { type: String },
-  status: { type: String, default: "Pending" }, // Pending/Reviewed/Rejected/Hired
   appliedDate: { type: Date, default: Date.now }
 });
 
 const CareerApplication = mongoose.model("CareerApplication", careerApplicationSchema);
 
-// Routes
+// Helper: Validate Google Drive resume link
+function isValidDriveLink(url) {
+  const patterns = [
+    /drive\.google\.com\/file\/d\/([^\/]+)/,
+    /drive\.google\.com\/open\?id=([^&]+)/,
+    /drive\.google\.com\/uc\?id=([^&]+)/,
+  ];
+  return patterns.some(pattern => pattern.test(url));
+}
+
+// POST: Submit career application
 app.post("/api/career", async (req, res) => {
   try {
-    // Validate required fields
-    const requiredFields = ['name', 'email', 'phone', 'gender', 'graduationYear', 'experience', 'resumeLink'];
-    const missingFields = requiredFields.filter(field => !req.body[field]);
-    
-    if (missingFields.length > 0) {
-      return res.status(400).json({ 
+    console.log("📩 Received data:", req.body);
+
+    const requiredFields = [
+      'name', 'email', 'phone', 'gender',
+      'graduationYear', 'experience', 'resumeLink'
+    ];
+
+    const missing = requiredFields.filter(field => !req.body[field]);
+    if (missing.length > 0) {
+      console.log("❌ Missing fields:", missing);
+      return res.status(400).json({
         success: false,
-        message: `Missing required fields: ${missingFields.join(', ')}`
+        message: `Missing fields: ${missing.join(', ')}`
       });
     }
 
-    // Validate Google Drive link format
     if (!isValidDriveLink(req.body.resumeLink)) {
-      return res.status(400).json({ 
+      console.log("❌ Invalid resume link:", req.body.resumeLink);
+      return res.status(400).json({
         success: false,
-        message: "Please provide a valid Google Drive link"
+        message: "Invalid Google Drive resume link"
       });
     }
 
-    // Create new application
-    const newApplication = new CareerApplication({
+    const newApp = new CareerApplication({
       name: req.body.name,
       email: req.body.email,
       phone: req.body.phone,
       gender: req.body.gender,
       graduationYear: req.body.graduationYear,
-      experience: req.body.experience,
-      resumeLink: req.body.resumeLink,
-      coverLetter: req.body.coverLetter || ""
+      experience: req.body.experience,  // Experience is sent from the frontend as 'role'
+      resumeLink: req.body.resumeLink
     });
 
-    // Save to database
-    await newApplication.save();
+    console.log("✅ Saving to MongoDB...");
+    await newApp.save();
+    console.log("✅ Saved successfully!");
 
-    // Send email notification to HR
-    await sendNewApplicationEmail(newApplication);
+    await sendNewApplicationEmail(newApp);
 
-    res.status(201).json({ 
+    res.status(201).json({
       success: true,
-      message: "Application submitted successfully!",
-      applicationId: newApplication._id
+      message: "Application submitted successfully",
+      applicationId: newApp._id
     });
 
-  } catch (error) {
-    console.error("Error submitting application:", error);
-    res.status(500).json({ 
+  } catch (err) {
+    console.error("🔥 Caught server error:", err);
+    res.status(500).json({
       success: false,
-      message: "Internal server error",
-      error: error.message
+      message: "Server error",
+      error: err.message
     });
   }
 });
 
-// Get all applications (for admin dashboard)
+// GET: Fetch all career applications
 app.get("/api/career", async (req, res) => {
   try {
-    const { page = 1, limit = 10, status } = req.query;
-    const filter = status ? { status } : {};
-    
-    const applications = await CareerApplication.find(filter)
+    const { page = 1, limit = 10 } = req.query;
+
+    const applications = await CareerApplication.find()
       .sort({ appliedDate: -1 })
       .skip((page - 1) * limit)
       .limit(parseInt(limit));
-    
-    const total = await CareerApplication.countDocuments(filter);
-    
+
+    const total = await CareerApplication.countDocuments();
+
     res.json({
       success: true,
       applications,
       total,
       totalPages: Math.ceil(total / limit),
-      currentPage: page
+      currentPage: parseInt(page)
     });
 
-  } catch (error) {
-    console.error("Error fetching applications:", error);
-    res.status(500).json({ 
+  } catch (err) {
+    console.error("❌ Error fetching applications:", err);
+    res.status(500).json({
       success: false,
-      message: "Failed to fetch applications",
-      error: error.message
+      message: "Error fetching applications",
+      error: err.message
     });
   }
 });
 
-// Update application status (for admin dashboard)
-app.put("/api/career/:id/status", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { status } = req.body;
-
-    if (!status || !["Pending", "Reviewed", "Rejected", "Hired"].includes(status)) {
-      return res.status(400).json({ 
-        success: false,
-        message: "Invalid status value"
-      });
-    }
-
-    const updatedApplication = await CareerApplication.findByIdAndUpdate(
-      id,
-      { status },
-      { new: true }
-    );
-
-    if (!updatedApplication) {
-      return res.status(404).json({ 
-        success: false,
-        message: "Application not found"
-      });
-    }
-
-    // Send status update email to applicant
-    await sendStatusUpdateEmail(updatedApplication);
-
-    res.json({
-      success: true,
-      message: "Application status updated",
-      application: updatedApplication
-    });
-
-  } catch (error) {
-    console.error("Error updating application status:", error);
-    res.status(500).json({ 
-      success: false,
-      message: "Failed to update application status",
-      error: error.message
-    });
-  }
-});
-
-// Helper function to validate Google Drive links
-function isValidDriveLink(url) {
-  const drivePatterns = [
-    /drive\.google\.com\/file\/d\/([^\/]+)/,
-    /drive\.google\.com\/open\?id=([^&]+)/,
-    /drive\.google\.com\/uc\?id=([^&]+)/
-  ];
-  return drivePatterns.some(pattern => pattern.test(url));
-}
-
-// Start server
+// Start the server
 app.listen(PORT, () => {
-  console.log(`✅ Server running at http://localhost:${PORT}`);
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
