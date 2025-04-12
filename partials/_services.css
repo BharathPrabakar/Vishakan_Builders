@@ -1,0 +1,233 @@
+#services h2 {
+    font-size: 5rem;
+}
+
+#services p {
+    font-size: 1.5rem;
+}
+
+#services .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+#services .container article {
+    background: linear-gradient(to right, #f4f4f4, #eaeaea); /* Replace @include gradientBackground */
+    padding: 1.5rem;
+    border-radius: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    transition: all 400ms ease;
+}
+
+#services .container article:hover {
+    margin-top: -0.5rem;
+}
+
+#services .container article i {
+    font-size: 1.7rem;
+}
+
+#services .container article div h4 {
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+}
+
+#services .container article div small {
+    font-size: 1.5rem;
+}
+
+#services .container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.switch-box {
+    background: white;
+    display: flex;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.switch-box .img-kinetic {
+    border-radius: 8px;
+    width: 80%;
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    flex: 1 1 1rem;
+}
+
+.switch-box .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.switch-box .row .video {
+    flex: 1 1 41rem;
+}
+
+.switch-box .row .video video {
+    width: 100%;
+}
+
+.switch-box .row .content {
+    flex: 1 1 41rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.switch-box .row .content h2 {
+    font-size: 3.5rem;
+}
+
+.switch-box .row .content p {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    font-size: 2.5rem;
+}
+
+.boxes {
+    background: white;
+    padding: 0 20rem;
+}
+
+.boxes .switch-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.boxes .text-container {
+    align-content: space-around;
+}
+
+.boxes .text-container h2 {
+    font-size: 3.5rem;
+    text-align: left;
+}
+
+.boxes .text-container h3 {
+    font-size: 2rem;
+    text-align: left;
+}
+
+.boxes .text-container p {
+    font-size: 1.4rem;
+    padding-top: 1rem;
+    text-align: left;
+}
+
+.boxes .text-container .progress {
+    display: grid;
+    border-radius: 50%;
+}
+
+.boxes .text-container .progress label {
+    font-size: 1.5rem;
+}
+
+.full-length-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-content: stretch;
+    padding: 40px 0;
+}
+
+.full-length-container img {
+    width: 500px;
+    height: 400px;
+}
+
+@media screen and (max-width: 1024px) {
+    #services .container {
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #services .container article {
+        padding: 1.2rem;
+        gap: 0.8rem;
+    }
+
+    #services .container article:hover {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #services .container {
+        grid-template-columns: 1fr;
+    }
+
+    #services .container article div h4 {
+        margin-bottom: 0.8rem;
+    }
+}
+
+.cta {
+    background: #f9f9f9; /* Replace var(--lighter-bg) */
+    padding: 80px 90px;
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: flex-start;
+}
+
+.cta h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+}
+
+.cta h3 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+.cta .left-box {
+    padding-left: 100px;
+}
+
+.cta .right-box p {
+    font-size: 1.7rem;
+}
+
+.cta .right-box .buttons {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: left;
+}
+
+.cta .right-box .buttons button {
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.cta .right-box .buttons .left-button button {
+    background-color: #ffcc00; /* Replace var(--yellow) */
+    color: white;
+}
+
+.cta .right-box .buttons .right-button button {
+    background-color: #007bff; /* Replace var(--blue) */
+    color: white;
+    border: 1px solid #add8e6; /* Replace var(--light-blue) */
+}

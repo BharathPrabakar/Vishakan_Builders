@@ -1,0 +1,161 @@
+#specialists h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+#specialists p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+#specialists .container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+#specialists .container img {
+    width: 100%;
+}
+
+#specialists .container article {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 1.5rem 1.5rem rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 700ms ease;
+    width: 60%;
+}
+
+#specialists .container article h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#specialists .container article small {
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+#specialists .container article:hover {
+    box-shadow: none;
+}
+
+#specialists .container article:hover .specialist__image::before {
+    left: 0;
+    border-radius: 1rem;
+}
+
+#specialists .container article:hover .specialist__socials,
+#specialists .container article:hover .specialist__whatsapp {
+    opacity: 1;
+    visibility: visible;
+}
+
+#specialists .container article .specialist__image {
+    height: 40rem;
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+#specialists .container article .specialist__image::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(135deg, rgba(255, 204, 0, 0.8), rgba(255, 153, 0, 0.8)); /* Replace SCSS variables */
+    border-radius: 50%;
+    transition: all 1s ease;
+}
+
+#specialists .container article .specialist__details {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+#specialists .container article .specialist__socials {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s 400ms ease;
+}
+
+#specialists .container article .specialist__socials a {
+    background: white;
+    color: #ffcc00; /* Replace SCSS variables */
+    padding: 0.4rem;
+    display: flex;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    transition: all 400ms ease;
+}
+
+#specialists .container article .specialist__socials a:hover {
+    background: #ffcc00; /* Replace SCSS variables */
+    color: white;
+}
+
+#specialists .container article .specialist__whatsapp {
+    background: green; /* Replace SCSS variables */
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30%;
+    padding: 1rem;
+    border-radius: 50%;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s 400ms ease;
+}
+
+.to-kinetic .content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.to-kinetic .content p {
+    font-size: 1.6rem;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.to-kinetic .content h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    #specialists .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #specialists .container {
+        grid-template-columns: 1fr;
+    }
+}

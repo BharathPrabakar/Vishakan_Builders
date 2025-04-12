@@ -1,0 +1,62 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr)); /* Replace $val with a default value */
+    gap: 2rem;
+}
+
+.title-text {
+    font-size: 2rem; /* Replace $titleSize with a default value */
+    color: #000; /* Replace var(--black) */
+    text-transform: capitalize;
+}
+
+.graph-text {
+    font-size: 1.5rem; /* Replace $graphSize with a default value */
+    color: #ccc; /* Replace var(--light-color) */
+    line-height: 2;
+}
+
+.icons-box {
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    background: #f4f4f4; /* Replace var(--light-bg) */
+    color: #000; /* Replace var(--black) */
+    cursor: pointer;
+    text-align: center;
+}
+
+.icons-box:hover {
+    background: #000; /* Replace var(--black) */
+    color: #fff; /* Replace var(--white) */
+}
+
+.button {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.75rem 1rem;
+    border-radius: 0.4rem;
+    background: #007bff; /* Replace $backgroundColor with a default value */
+    color: #fff; /* Replace $textColor with a default value */
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+
+.button:hover {
+    background: #0056b3; /* Replace lighten($backgroundColor, 8%) */
+    box-shadow: 0 1rem 1.6rem rgba(0, 0, 0, 0.15); /* Replace $black-color */
+}
+
+.gradient-background {
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Replace $primary-color and $primary-color-variant */
+    color: #fff; /* Replace $white-color */
+}
+
+.gradient-background h1,
+.gradient-background h2,
+.gradient-background h3,
+.gradient-background h4,
+.gradient-background h5 {
+    color: #fff; /* Replace $white-color */
+}

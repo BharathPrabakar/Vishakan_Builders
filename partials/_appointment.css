@@ -1,0 +1,93 @@
+#appointment .container {
+    display: grid;
+    grid-template-columns: 47% 47%;
+    gap: 6%;
+}
+
+#appointment .container small,
+#appointment .container p {
+    font-size: 1.3rem;
+}
+
+#appointment .container h2 {
+    font-size: 2rem;
+}
+
+#appointment .container .info p {
+    margin: 0.5rem 0 2rem;
+}
+
+#appointment .container .info h4 {
+    font-size: 1.5rem;
+    margin-top: 1.2rem;
+}
+
+#appointment .container .info article {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#appointment .container .info article small {
+    margin-top: 0.4rem;
+    display: block;
+}
+
+#appointment .container .info article .info__icon {
+    background: #f5bf23; /* Replace $secondary-color */
+    color: #fff; /* Replace $white-color */
+    padding: 0.8rem;
+    height: fit-content;
+    border-radius: 50%;
+    display: flex;
+    font-size: 1.5rem;
+    margin-top: 1.2rem;
+}
+
+#appointment .container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+#appointment .container form .form__group label {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+    display: inline-block;
+    font-weight: 600;
+}
+
+#appointment .container form .form__group input,
+#appointment .container form .form__group textarea,
+#appointment .container form .form__group select {
+    background: #fff; /* Replace $white-color */
+    padding: 0.85rem 1rem;
+    display: block;
+    width: 100%;
+    border-radius: 0.4rem;
+    resize: none;
+    appearance: none;
+}
+
+#appointment .container form .btn-primary {
+    background: #f5bf23; /* Replace var(--yellow) */
+    padding: 2rem;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+#appointment .container form .btn-primary:hover {
+    background: #f1b825; /* Replace lighten(rgb(241, 184, 37), 9%) */
+}
+
+@media screen and (max-width: 600px) {
+    #appointment .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    #appointment .container .info h2,
+    #appointment .container .info p {
+        text-align: center;
+    }
+}

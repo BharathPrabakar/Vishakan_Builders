@@ -1,0 +1,229 @@
+.grid-box {
+    background: #020335; /* Replace var(--dark-blue) */
+    color: #fff; /* Replace var(--white) */
+    padding: 8em 6em;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.grid-box h2 {
+    font-size: 2.5rem;
+}
+
+.grid-box h3 {
+    font-size: 1.8rem;
+}
+
+.grid-box h4 {
+    font-size: 1.6rem;
+}
+
+.grid-box p {
+    font-size: 1.2rem;
+}
+
+.grid-box small {
+    font-size: 0.9rem;
+}
+
+.grid-box .box1 {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    padding: 5rem 5rem;
+}
+
+.grid-box .box1 .box-left {
+    padding: 2rem;
+    text-align: left;
+}
+
+.grid-box .box1 .box-left h2 {
+    line-height: 1.2;
+    font-weight: 700;
+    font-size: 4rem;
+    text-align: left;
+    color: #f5bf23; /* Replace var(--yellow) */
+    line-height: 45px;
+    letter-spacing: 1.3px;
+}
+
+.grid-box .box1 .box-left p {
+    font-size: 2rem;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.grid-box .box1 .box-left h3 {
+    text-align: left;
+    color: #eee; /* Replace var(--light-bg) */
+}
+
+.grid-box .box1 .box-right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: stretch;
+    grid-template-rows: 200px;
+    grid-gap: 5px;
+}
+
+.grid-box .box1 .box-right h4 {
+    font-weight: 600;
+    font-size: 3rem;
+    text-align: center;
+    color: #f5bf23; /* Replace var(--yellow) */
+}
+
+.grid-box .box1 .box-right small {
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+.grid-box .box1 .box-right .box1,
+.grid-box .box1 .box-right .box2,
+.grid-box .box1 .box-right .box3,
+.grid-box .box1 .box-right .box4 {
+    background: #06084f; /* Replace var(--dark-blue2) */
+    border-radius: 15px;
+    display: block;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: 20px 25px;
+}
+
+.grid-box .box2 {
+    border-radius: 10px;
+    display: grid;
+    justify-content: center;
+    padding-bottom: 5rem;
+}
+
+.grid-box h4 {
+    font-weight: 600;
+    font-size: 2.2rem;
+    text-align: center;
+    padding-bottom: 1.2rem;
+}
+
+.grid-box h3 {
+    font-size: 1.8rem;
+    text-align: center;
+    padding-bottom: 1.2rem;
+}
+
+.grid-box small {
+    font-size: 2.2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.grid-box h2 {
+    line-height: 1.2;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+    padding-bottom: 1.2rem;
+}
+
+.grid-box p {
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.grid-box .button-class {
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+
+.grid-box button {
+    background: #f5bf23; /* Replace var(--yellow) */
+    padding: 2rem 1.2rem;
+    font-weight: bold;
+    border-radius: 15px;
+    color: #111; /* Replace var(--black) */
+}
+
+.concrete-how-to {
+    grid-template-columns: 2fr 3fr;
+    margin: 50px 0;
+    background: #fbfbfb; /* Replace var(--lighter-bg) */
+    display: grid;
+    align-items: center;
+    padding: 8em 6em;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.concrete-how-to h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.concrete-how-to p {
+    font-size: 1.7rem;
+    font-weight: 400;
+}
+
+.concrete-how-to .left-big {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row: 1/2;
+    padding: 50px 30px;
+    background: #fff; /* Replace var(--white) */
+    border-radius: 15px;
+}
+
+.concrete-how-to .left-big h3 {
+    font-size: 2rem;
+}
+
+.concrete-how-to .left-big p {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.concrete-how-to .left-big button {
+    background: #f5bf23; /* Replace var(--yellow) */
+    padding: 2rem 1.2rem;
+    font-weight: bold;
+    border-radius: 15px;
+    color: #fff; /* Replace var(--white) */
+}
+
+.concrete-how-to .right-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+}
+
+.concrete-how-to .right-main img {
+    max-height: fit-content;
+    max-width: 500px;
+}
+
+.concrete-how-to .right-main .top {
+    padding: 30px 10px;
+}
+
+.concrete-how-to .right-main .top h3 {
+    font-size: 2rem;
+}
+
+.concrete-how-to .right-main .top p {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.concrete-how-to .right-main .top img {
+    max-height: 300px;
+}
+
+.concrete-how-to .right-main .i-right img {
+    height: fit-content;
+    width: 800px;
+    align-items: left;
+}
+

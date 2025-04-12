@@ -1,0 +1,81 @@
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar {
+    background: #ffcc00; /* Replace var(--yellow) */
+}
+
+body {
+    line-height: 1.5;
+    color: #333; /* Replace $dark-color */
+    user-select: none;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+img {
+    display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    line-height: 1.2;
+}
+
+.btn1 {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.75rem 1rem;
+    border-radius: 0.4rem;
+    background: #007bff; /* Replace default background color */
+    color: #fff; /* Replace default text color */
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+
+.btn1:hover {
+    background: #0056b3; /* Replace lighten($backgroundColor, 8%) */
+    box-shadow: 0 1rem 1.6rem rgba(0, 0, 0, 0.15); /* Replace $black-color */
+}
+
+.btn1-primary {
+    background: #007bff; /* Replace $primary-color */
+    color: #fff; /* Replace $white-color */
+}
+
+.btn1-primary:hover {
+    background: #0056b3; /* Replace lighten($primary-color, 8%) */
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 80%; /* Replace $container-md with a default value */
+    }
+
+    section > p {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    section > p {
+        width: 90%; /* Replace $container-md with a default value */
+    }
+}

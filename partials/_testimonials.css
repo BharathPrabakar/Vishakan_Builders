@@ -1,0 +1,65 @@
+.mySwiper {
+    padding-top: 5rem;
+    font-size: 1.3rem;
+}
+
+.mySwiper h2 {
+    font-size: 1.8rem;
+}
+
+.mySwiper h5 {
+    font-size: 1.5rem;
+}
+
+.mySwiper .wrapper1 {
+    margin-bottom: 2rem;
+}
+
+.mySwiper .wrapper1 .slide1 {
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.mySwiper .wrapper1 .slide1 p {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.mySwiper .wrapper1 .slide1 .patient {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mySwiper .wrapper1 .slide1 .patient .avatar {
+    width: 2.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.mySwiper .swiper-pagination-bullet {
+    background: #ffcc00; /* Replace $primary-color with actual color */
+}
+
+.button-class {
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+
+button {
+    background: #ffcc00; /* Replace var(--yellow) with actual color */
+    padding: 2rem 1.2rem;
+    font-weight: bold;
+    border-radius: 15px;
+    color: #000; /* Replace var(--black) with actual color */
+    margin: 40px 0;
+}
+
+@media screen and (max-width: 600px) {
+    .swiper .swiper-wrapper .swiper-slide {
+        padding: 1.5rem;
+    }
+}
