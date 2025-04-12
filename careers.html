@@ -11,14 +11,12 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
     <style>
-        /* Enhanced Job Listings Section */
         .job-listings {
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
             background-color: #f9f9f9;
         }
-        
         .job-listings h2 {
             text-align: center;
             font-size: 2.5rem;
@@ -27,7 +25,6 @@
             position: relative;
             padding-bottom: 15px;
         }
-        
         .job-listings h2::after {
             content: '';
             position: absolute;
@@ -38,14 +35,12 @@
             height: 3px;
             background: #3498db;
         }
-        
         .jobs-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-        
         .job-card {
             background: #fff;
             border-radius: 10px;
@@ -56,7 +51,6 @@
             position: relative;
             overflow: hidden;
         }
-        
         .job-card::before {
             content: '';
             position: absolute;
@@ -67,12 +61,10 @@
             background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(52, 152, 219, 0) 100%);
             z-index: 0;
         }
-        
         .job-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
-        
         .job-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
@@ -80,7 +72,6 @@
             position: relative;
             z-index: 1;
         }
-        
         .job-card .location {
             display: flex;
             align-items: center;
@@ -90,12 +81,10 @@
             position: relative;
             z-index: 1;
         }
-        
         .job-card .location i {
             margin-right: 0.5rem;
             color: #3498db;
         }
-        
         .job-card p {
             margin-bottom: 1rem;
             line-height: 1.6;
@@ -103,7 +92,6 @@
             position: relative;
             z-index: 1;
         }
-        
         .job-card .requirements {
             background: rgba(52, 152, 219, 0.05);
             padding: 1rem;
@@ -113,23 +101,19 @@
             z-index: 1;
             border-left: 3px solid #3498db;
         }
-        
         .job-card .requirements strong {
             color: #2c3e50;
             display: block;
             margin-bottom: 0.5rem;
         }
-        
         .job-card .requirements ul {
             padding-left: 1.2rem;
             margin: 0;
         }
-        
         .job-card .requirements li {
             margin-bottom: 0.3rem;
             color: #555;
         }
-        
         .job-card .apply-btn {
             display: inline-block;
             margin-top: 1rem;
@@ -148,113 +132,11 @@
             width: 100%;
             text-align: center;
         }
-        
         .job-card .apply-btn:hover {
             background: #2980b9;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(41, 128, 185, 0.3);
         }
-        
-        /* Application Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-        
-        .modal-content {
-            background: #fff;
-            margin: 5% auto;
-            padding: 2rem;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 600px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-            position: relative;
-            animation: modalFadeIn 0.3s;
-        }
-        
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: #7f8c8d;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        .close-modal:hover {
-            color: #e74c3c;
-        }
-        
-        .modal h3 {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            text-align: center;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: border 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: #3498db;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-        }
-        
-        .submit-application {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 1rem 1.5rem;
-            border-radius: 6px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            font-weight: 500;
-        }
-        
-        .submit-application:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(41, 128, 185, 0.3);
-        }
-        
         .success-message {
             display: none;
             background: rgba(46, 204, 113, 0.1);
@@ -265,319 +147,187 @@
             text-align: center;
             border: 1px solid rgba(46, 204, 113, 0.3);
         }
-        
-        /* Responsive Styles */
         @media (max-width: 768px) {
             .jobs-container {
                 grid-template-columns: 1fr;
             }
-            
             .job-card {
-                padding: 1.5rem;
-            }
-            
-            .modal-content {
-                margin: 10% auto;
-                width: 95%;
                 padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <a href="#" class="logo">Vishakan<span> Builders</span></a>
-        <nav class="navbar">
-            <a href="./index.html">Home</a>
-            <a href="./services.html">Services</a>
-            <a href="./projects.html">Projects</a>
-            <a href="./careers.html">Careers</a>
-        </nav>
-        <div class="icons">
-            <div id="menu-btn" class="fas fa-bars"></div>
+<header class="header">
+    <a href="#" class="logo">Vishakan<span> Builders</span></a>
+    <nav class="navbar">
+        <a href="./index.html">Home</a>
+        <a href="./services.html">Services</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./careers.html">Careers</a>
+    </nav>
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+    </div>
+</header>
+<section class="hero">
+    <div class="hero1">
+        <div class="text-container">
+            <h2 class="heading">Careers @ Vishakan<span> Builders </h2>
+            <h3>Build the future with us – in Salem and Erode</h3>
+            <p>We're always on the lookout for passionate individuals who are ready to shape the infrastructure of tomorrow. Join our experienced, energetic team and contribute to projects that make a real difference in Tamil Nadu.</p>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero1">
-            <div class="text-container">
-                <h2 class="heading">Careers @ Vishakan<span> Builders </h2>
-                <h3>Build the future with us – in Salem and Erode</h3>
-                <p>We're always on the lookout for passionate individuals who are ready to shape the infrastructure of tomorrow. Join our experienced, energetic team and contribute to projects that make a real difference in Tamil Nadu.</p>
+    </div>
+</section>
+<section class="job-listings">
+    <h2>Current Job Openings</h2>
+    <div class="jobs-container">
+        <div class="job-card">
+            <h3>Site Engineer</h3>
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Salem, Tamil Nadu</span>
             </div>
+            <p>Oversee construction activities, ensure quality standards, and manage on-site operations for our projects in Salem.</p>
+            <div class="requirements">
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>B.E./Diploma in Civil Engineering</li>
+                    <li>2+ years experience in construction</li>
+                    <li>Strong technical knowledge</li>
+                    <li>Excellent problem-solving skills</li>
+                </ul>
+            </div>
+            <a href="apply.html" class="apply-btn">Apply Now</a>
         </div>
-    </section>
-
-    <!-- Current Job Openings Section -->
-    <section class="job-listings">
-        <h2>Current Job Openings</h2>
-        <div class="jobs-container">
-            <div class="job-card">
-                <h3>Site Engineer</h3>
-                <div class="location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Salem, Tamil Nadu</span>
-                </div>
-                <p>Oversee construction activities, ensure quality standards, and manage on-site operations for our projects in Salem.</p>
-                <div class="requirements">
-                    <p><strong>Requirements:</strong></p>
-                    <ul>
-                        <li>B.E./Diploma in Civil Engineering</li>
-                        <li>2+ years experience in construction</li>
-                        <li>Strong technical knowledge</li>
-                        <li>Excellent problem-solving skills</li>
-                    </ul>
-                </div>
-                <a href="apply.html" class="apply-btn">Apply Now</a>
+        <div class="job-card">
+            <h3>Project Manager</h3>
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Erode, Tamil Nadu</span>
             </div>
-            
-            <div class="job-card">
-                <h3>Project Manager</h3>
-                <div class="location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Erode, Tamil Nadu</span>
-                </div>
-                <p>Lead and manage large-scale construction projects from conception to completion, ensuring timely delivery and quality.</p>
-                <div class="requirements">
-                    <p><strong>Requirements:</strong></p>
-                    <ul>
-                        <li>B.E. in Civil Engineering</li>
-                        <li>5+ years experience in project management</li>
-                        <li>Strong leadership skills</li>
-                        <li>Budget and timeline management</li>
-                    </ul>
-                </div>
-                <a href="apply.html" class="apply-btn">Apply Now</a>
+            <p>Lead and manage large-scale construction projects from conception to completion, ensuring timely delivery and quality.</p>
+            <div class="requirements">
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>B.E. in Civil Engineering</li>
+                    <li>5+ years experience in project management</li>
+                    <li>Strong leadership skills</li>
+                    <li>Budget and timeline management</li>
+                </ul>
             </div>
-            
-            <div class="job-card">
-                <h3>AutoCAD Designer</h3>
-                <div class="location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Salem, Tamil Nadu</span>
-                </div>
-                <p>Create detailed structural drawings and designs using AutoCAD for our construction projects.</p>
-                <div class="requirements">
-                    <p><strong>Requirements:</strong></p>
-                    <ul>
-                        <li>Proficiency in AutoCAD</li>
-                        <li>1+ year experience in structural drafting</li>
-                        <li>Knowledge of construction standards</li>
-                        <li>Attention to detail</li>
-                    </ul>
-                </div>
-                <a href="apply.html" class="apply-btn">Apply Now</a>
-            </div>
-            
-            <div class="job-card">
-                <h3>Marketing Executive</h3>
-                <div class="location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Erode, Tamil Nadu</span>
-                </div>
-                <p>Promote our services, build client relationships, and contribute to business growth in the region.</p>
-                <div class="requirements">
-                    <p><strong>Requirements:</strong></p>
-                    <ul>
-                        <li>Any bachelor's degree</li>
-                        <li>Excellent communication skills</li>
-                        <li>Local language proficiency</li>
-                        <li>Sales and marketing experience preferred</li>
-                    </ul>
-                </div>
-                <a href="apply.html" class="apply-btn">Apply Now</a>
-            </div>
+            <a href="apply.html" class="apply-btn">Apply Now</a>
         </div>
-    </section>
-
-    <!-- Why Work With Us Section -->
-    
-
-    <!-- Call to Action Section -->
-    <div class="cta">
-        <div class="left-box">
-            <h2>Ready to Join Our Team?</h2>
-            <h3>We're excited to hear from you</h3>
+        <div class="job-card">
+            <h3>AutoCAD Designer</h3>
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Salem, Tamil Nadu</span>
+            </div>
+            <p>Create detailed structural drawings and designs using AutoCAD for our construction projects.</p>
+            <div class="requirements">
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>Proficiency in AutoCAD</li>
+                    <li>1+ year experience in structural drafting</li>
+                    <li>Knowledge of construction standards</li>
+                    <li>Attention to detail</li>
+                </ul>
+            </div>
+            <a href="apply.html" class="apply-btn">Apply Now</a>
         </div>
-        <div class="right-box">
-            <p>Apply now by sending your resume to <strong>careers@vishakabuilders.in</strong> or click below to get in touch. We're currently hiring for multiple positions in Salem and Erode!</p>
-            <div class="buttons">
-                <div class="left-button">
-                    <button class="free-consultation"><a href="apply.html">Apply Now</a></button>
-                </div>
+        <div class="job-card">
+            <h3>Marketing Executive</h3>
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Erode, Tamil Nadu</span>
+            </div>
+            <p>Promote our services, build client relationships, and contribute to business growth in the region.</p>
+            <div class="requirements">
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                    <li>Any bachelor's degree</li>
+                    <li>Excellent communication skills</li>
+                    <li>Local language proficiency</li>
+                    <li>Sales and marketing experience preferred</li>
+                </ul>
+            </div>
+            <a href="apply.html" class="apply-btn">Apply Now</a>
+        </div>
+    </div>
+</section>
+<div class="cta">
+    <div class="left-box">
+        <h2>Ready to Join Our Team?</h2>
+        <h3>We're excited to hear from you</h3>
+    </div>
+    <div class="right-box">
+        <p>Apply now by sending your resume to <strong>careers@vishakabuilders.in</strong> or click below to get in touch. We're currently hiring for multiple positions in Salem and Erode!</p>
+        <div class="buttons">
+            <div class="left-button">
+                <button class="free-consultation"><a href="apply.html">Apply Now</a></button>
             </div>
         </div>
     </div>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <article>
-                <a href="#" class="footer__logo"><h3>Vishaka Builders</h3></a>
-                <p>
-                    Trusted civil engineers delivering quality construction across Tamil Nadu. From planning to finishing, we build with care and commitment.
-                </p>
-                <div>
-                    <i class="bx bx-phone"></i>
-                    <small>+91 98765 43210</small>
-                </div>
-                <div>
-                    <i class="bx bx-envelope"></i>
-                    <small>vishakabuilders@gmail.com</small>
-                </div>
-            </article>
-    
-            <article>
-                <h3>Support</h3>
-                <a href="#">Contact Us</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Careers</a>
-            </article>
-    
-            <article>
-                <h3>Our Services</h3>
-                <a href="#">Residential Projects</a>
-                <a href="#">Commercial Buildings</a>
-                <a href="#">Renovation Works</a>
-                <a href="#">Interior Designs</a>
-            </article>
-    
-            <article>
-                <h3>Quick Links</h3>
-                <a href="#">FAQs</a>
-                <a href="#">Blog</a>
-                <a href="#">Gallery</a>
-                <div class="footer__socials">
-                    <i class="bx bxl-linkedin"></i>
-                    <i class="bx bxl-facebook"></i>
-                    <i class="bx bxl-instagram"></i>
-                    <i class="bx bxl-youtube"></i>
-                </div>
-            </article>
-        </div>
-    
-        <div class="copyright">
-            <small>&copy; 2025 Vishaka Builders. All Rights Reserved.</small>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Modal functionality
-            const modal = document.getElementById('application-modal');
-            const applyButtons = document.querySelectorAll('.apply-btn');
-            const closeModal = document.querySelector('.close-modal');
-            const modalPositionTitle = document.getElementById('modal-position-title');
-            const positionInput = document.getElementById('position');
-            const locationInput = document.getElementById('location');
-            const form = document.getElementById('career-form');
-            const successMessage = document.getElementById('success-message');
-
-            // Open modal for specific position
-            applyButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const position = this.getAttribute('data-position');
-                    const location = this.getAttribute('data-location');
-
-                    // Update modal content with position and location
-                    modalPositionTitle.textContent = `Apply for ${position} in ${location}`;
-                    positionInput.value = position;
-                    locationInput.value = location;
-
-                    modal.style.display = 'block';
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-
-            // Close modal
-            closeModal.addEventListener('click', function () {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-
-            // Close modal when clicking outside
-            window.addEventListener('click', function (event) {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-
-            // Form submission
-            form.addEventListener('submit', async function (e) {
-                e.preventDefault();
-
-                const formData = {
-                    name: document.getElementById('name').value.trim(),
-                    email: document.getElementById('email').value.trim(),
-                    phone: document.getElementById('phone').value.trim(),
-                    gender: document.getElementById('gender').value,
-                    graduationYear: document.getElementById('graduation-year').value,
-                    experience: document.getElementById('experience').value,
-                    resume: document.getElementById('resume').value.trim(),
-                    coverLetter: document.getElementById('cover-letter').value.trim(),
-                    position: positionInput.value,
-                    location: locationInput.value
-                };
-
-                // Validate Google Drive link
-                if (!isValidDriveLink(formData.resume)) {
-                    alert('Please provide a valid Google Drive link');
-                    return;
-                }
-
-                try {
-                    const response = await fetch('http://localhost:5000/api/career', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(formData)
-                    });
-
-                    const result = await response.json();
-
-                    if (response.ok) {
-                        // Show success message
-                        successMessage.style.display = 'block';
-                        form.reset();
-
-                        // Hide form and show success for 5 seconds
-                        form.style.display = 'none';
-                        setTimeout(() => {
-                            successMessage.style.display = 'none';
-                            form.style.display = 'block';
-                            modal.style.display = 'none';
-                            document.body.style.overflow = 'auto';
-                        }, 5000);
-                    } else {
-                        alert('Error: ' + (result.message || 'Something went wrong. Please try again.'));
-                    }
-                } catch (error) {
-                    console.error('Error submitting form:', error);
-                    alert('Network error. Please check your connection and try again.');
-                }
-            });
-
-            // Validate Google Drive link format
-            function isValidDriveLink(url) {
-                const drivePatterns = [
-                    /drive\.google\.com\/file\/d\/([^\/]+)/,
-                    /drive\.google\.com\/open\?id=([^&]+)/,
-                    /drive\.google\.com\/uc\?id=([^&]+)/,
-                ];
-                return drivePatterns.some(pattern => pattern.test(url));
-            }
-
-            // Phone number validation
-            const phoneInput = document.getElementById('phone');
-            phoneInput.addEventListener('input', function (e) {
-                this.value = this.value.replace(/\D/g, ''); // Removes non-numeric characters
+</div>
+<footer>
+    <div class="container">
+        <article>
+            <a href="#" class="footer__logo"><h3>Vishaka Builders</h3></a>
+            <p>
+                Trusted civil engineers delivering quality construction across Tamil Nadu. From planning to finishing, we build with care and commitment.
+            </p>
+            <div>
+                <i class="bx bx-phone"></i>
+                <small>+91 98765 43210</small>
+            </div>
+            <div>
+                <i class="bx bx-envelope"></i>
+                <small>vishakabuilders@gmail.com</small>
+            </div>
+        </article>
+        <article>
+            <h3>Support</h3>
+            <a href="#">Contact Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Careers</a>
+        </article>
+        <article>
+            <h3>Our Services</h3>
+            <a href="#">Residential Projects</a>
+            <a href="#">Commercial Buildings</a>
+            <a href="#">Renovation Works</a>
+            <a href="#">Interior Designs</a>
+        </article>
+        <article>
+            <h3>Quick Links</h3>
+            <a href="#">FAQs</a>
+            <a href="#">Blog</a>
+            <a href="#">Gallery</a>
+            <div class="footer__socials">
+                <i class="bx bxl-linkedin"></i>
+                <i class="bx bxl-facebook"></i>
+                <i class="bx bxl-instagram"></i>
+                <i class="bx bxl-youtube"></i>
+            </div>
+        </article>
+    </div>
+    <div class="copyright">
+        <small>&copy; 2025 Vishaka Builders. All Rights Reserved.</small>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const applyButtons = document.querySelectorAll('.apply-btn');
+        applyButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const position = this.getAttribute('data-position');
+                const location = this.getAttribute('data-location');
+                console.log(`Applying for ${position} in ${location}`);
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>

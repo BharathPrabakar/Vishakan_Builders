@@ -239,17 +239,17 @@
                 e.preventDefault();
 
                 const formData = {
-                    name: document.getElementById('name').value.trim(),
-                    email: document.getElementById('email').value.trim(),
-                    phone: document.getElementById('phone').value.trim(),
-                    gender: document.getElementById('gender').value,
-                    graduationYear: document.getElementById('graduation-year').value.trim(),
-                    role: document.getElementById('role').value,
-                    resume: document.getElementById('resume').value.trim(),
+                    name: form.name.value,
+                    email: form.email.value,
+                    phone: form.phone.value,
+                    gender: form.gender.value,
+                    graduationYear: form['graduation-year'].value,
+                    experience: form.role.value, // 'experience' corresponds to the 'role' value in the frontend
+                    resumeLink: form.resume.value
                 };
 
                 try {
-                    const response = await fetch('http://localhost:5000/api/career', {
+                    const response = await fetch('http://localhost:5001/api/career', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -257,22 +257,25 @@
                         body: JSON.stringify(formData),
                     });
 
-                    const result = await response.json();
+                    const data = await response.json();
 
-                    if (response.ok) {
+                    if (data.success) {
                         successMessage.style.display = 'block';
                         form.reset();
-                        setTimeout(() => {
-                            successMessage.style.display = 'none';
-                        }, 5000);
                     } else {
-                        alert('Error: ' + (result.message || 'Something went wrong. Please try again.'));
+                        alert(data.message || 'An error occurred. Please try again.');
                     }
+
                 } catch (error) {
-                    console.error('Error submitting form:', error);
-                    alert('Network error. Please check your connection and try again.');
+                    alert('An error occurred. Please try again.');
                 }
             });
+        });
+
+        mongoose.connect(MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 30000, // 30 seconds
         });
     </script>
 </body>
